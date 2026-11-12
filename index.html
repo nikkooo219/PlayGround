@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#080b0c" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23080b0c'/%3E%3Cpath d='M7 6h18v5H12v4h11v5H12v6H7z' fill='%23bdc95c'/%3E%3C/svg%3E" />
+  <title>LAST SHIFT — Night Watch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game" class="game-shell">
+    <div class="scanlines" aria-hidden="true"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">▰</span><span>FAZBEAR'S FRIGHT</span><small>HORROR ATTRACTION</small></div>
+      <div class="night-label">NIGHT <b id="night-num">01</b></div>
+      <div class="clock"><span id="clock">12 AM</span><small>SHIFT IN PROGRESS</small></div>
+    </header>
+
+    <section id="intro" class="overlay intro-overlay show">
+      <div class="intro-card">
+        <p class="eyebrow">FAZBEAR'S FRIGHT · SECURITY LOG 01</p>
+        <h1>LAST<br><span>SHIFT</span></h1>
+        <p class="intro-copy">Thirty years after the rumors began, one thing has been found.<br>It is waiting for you in the dark.</p>
+        <div class="intro-rule"></div>
+        <p class="instructions">SURVIVE UNTIL 6 AM <i>·</i> WATCH THE CAMERAS <i>·</i> KEEP THE SYSTEMS ONLINE</p>
+        <button id="start-btn" class="primary-btn">BEGIN NIGHT <span>▶</span></button>
+        <p class="microcopy">HEADPHONES RECOMMENDED · USE SOUND TO LOCATE THE THREAT</p>
+      </div>
+      <div class="intro-silhouette" aria-hidden="true"><div class="monster-head"><i></i><i></i></div><div class="monster-body"></div></div>
+    </section>
+
+    <section id="office" class="office" aria-label="Security office">
+      <div class="office-scene">
+        <div class="ceiling"></div><div class="back-wall"></div>
+        <div class="pipe pipe-a"></div><div class="pipe pipe-b"></div>
+        <div class="poster poster-one"><b>HAPPY</b><span>FAZBEAR'S</span><b>FRIGHT</b><i>OPENING SOON</i></div>
+        <div class="poster poster-two"><b>KEEP</b><span>OUT</span><i>EMPLOYEES ONLY</i></div>
+        <div class="vent vent-left"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="vent vent-right"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="desk"><div class="monitor monitor-left"><div class="monitor-glow"></div><span>CAM 01</span></div><div class="monitor monitor-right"><div class="monitor-glow"></div><span>ERROR</span></div><div class="desk-top"></div><div class="fan"><i></i><i></i><i></i><b></b></div><div class="paper"></div></div>
+        <div class="office-threat" id="office-threat"><div class="threat-eye eye-left"></div><div class="threat-eye eye-right"></div><div class="threat-mouth"></div></div>
+        <div class="office-vignette"></div>
+        <div class="scene-caption">SECURITY OFFICE <span>·</span> CAM SYSTEM ACTIVE</div>
+      </div>
+      <div class="office-controls">
+        <button id="monitor-btn" class="control-btn monitor-toggle"><span class="icon">▤</span><span>CAMERAS</span><kbd>SPACE</kbd></button>
+        <div class="control-readout"><span class="live-dot"></span> LIVE FEED <b id="office-status">ALL SYSTEMS NOMINAL</b></div>
+      </div>
+    </section>
+
+    <section id="monitor" class="monitor-view" aria-label="Security camera monitor">
+      <div class="monitor-frame">
+        <div class="feed" id="feed">
+          <div class="feed-room" id="feed-room">
+            <div class="feed-ceiling"></div><div class="feed-back"></div><div class="feed-floor"></div>
+            <div class="feed-prop prop-a"></div><div class="feed-prop prop-b"></div><div class="feed-prop prop-c"></div>
+            <div class="feed-poster">FAZBEAR'S<br>FRIGHT</div>
+            <div class="springtrap" id="springtrap"><div class="rabbit-ear ear-a"></div><div class="rabbit-ear ear-b"></div><div class="rabbit-head"><i></i><i></i><b></b></div><div class="rabbit-body"></div><div class="rabbit-arm"></div></div>
+            <div class="feed-noise"></div>
+          </div>
+          <div class="feed-header"><span id="cam-name">CAM 01 · SHOW STAGE</span><span class="rec"><i></i> REC</span></div>
+          <div class="feed-footer"><span id="cam-time">SIGNAL STRENGTH 98%</span><span>FAZBEAR'S FRIGHT // CCTV</span></div>
+          <div id="phantom" class="phantom">SIGNAL LOST</div>
+        </div>
+        <div class="cam-sidebar">
+          <div class="sidebar-label">CAMERA SELECT</div>
+          <div id="camera-list" class="camera-list"></div>
+          <div class="map-label">ATTRACTION MAP <span>● LIVE</span></div>
+          <div id="map" class="map"></div>
+        </div>
+        <div class="monitor-bottom">
+          <button id="audio-btn" class="system-btn"><span class="sys-icon">♫</span><span><b>AUDIO DEVICE</b><small id="audio-state">ONLINE · READY</small></span><kbd>A</kbd></button>
+          <button id="vent-btn" class="system-btn"><span class="sys-icon">◉</span><span><b>VENTILATION</b><small id="vent-state">ONLINE · 100%</small></span><kbd>V</kbd></button>
+          <button id="reboot-btn" class="system-btn"><span class="sys-icon">⟳</span><span><b>REBOOT SYSTEMS</b><small id="reboot-state">ALL SYSTEMS</small></span><kbd>R</kbd></button>
+          <div class="power-meter"><span>SYSTEM LOAD</span><b id="power-value">100%</b><div class="power-track"><i id="power-bar"></i></div></div>
+        </div>
+      </div>
+      <button id="lower-monitor" class="lower-monitor">▼ LOWER MONITOR <kbd>SPACE</kbd></button>
+    </section>
+
+    <footer class="bottom-hud"><span>FAZBEAR'S FRIGHT · 2026</span><span>DON'T LET IT FIND YOU</span><span id="threat-status">MOTION: <b>UNDETECTED</b></span></footer>
+
+    <section id="jumpscare" class="overlay scare-overlay"><div class="scare-face"><div class="scare-ears"><i></i><i></i></div><div class="scare-head"><div class="scare-eyes"><i></i><i></i></div><div class="scare-jaw">▦ ▦ ▦ ▦</div></div></div><h2>YOU WERE FOUND</h2><p>THE SHIFT IS OVER</p><button id="retry-btn" class="primary-btn">TRY AGAIN <span>↻</span></button></section>
+    <section id="win" class="overlay win-overlay"><div class="win-card"><p class="eyebrow">SECURITY LOG COMPLETE</p><h2>6<span>AM</span></h2><p>YOU MADE IT THROUGH THE NIGHT.</p><div class="win-stars">✦ &nbsp; ✦ &nbsp; ✦</div><button id="next-btn" class="primary-btn">NEXT NIGHT <span>▶</span></button></div></section>
+    <div id="toast" class="toast" aria-live="polite"></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
